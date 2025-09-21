@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Main;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('main.')->group(function () {
+    Route::get('/', Main\IndexController::class)->name('index');
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
