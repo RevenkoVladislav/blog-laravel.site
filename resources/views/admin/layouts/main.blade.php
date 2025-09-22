@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
@@ -32,20 +32,14 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('admin.index') }}" class="nav-link">Домой</a>
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-
-        </div>
-        <!-- /.sidebar -->
-
-    </aside>
+@include('admin.includes.sidebar')
 
 @yield('content')
 
