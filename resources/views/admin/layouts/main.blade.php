@@ -35,6 +35,9 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.index') }}" class="nav-link">Домой</a>
             </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('admin.category.index') }}" class="nav-link">Категории</a>
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->

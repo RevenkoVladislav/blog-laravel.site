@@ -16,6 +16,11 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::prefix('categories')->name('category.')->group(function() {
        Route::get('/', AdminCategory\IndexController::class)->name('index');
        Route::get('/create', AdminCategory\CreateController::class)->name('create');
+       Route::post('/', AdminCategory\StoreController::class)->name('store');
+       Route::get('/{category}', AdminCategory\ShowController::class)->name('show');
+       Route::get('/{category}/edit', AdminCategory\EditController::class)->name('edit');
+       Route::patch('/{category}', AdminCategory\UpdateController::class)->name('update');
+       Route::delete('/{category}', AdminCategory\DeleteController::class)->name('delete');
     });
 });
 
