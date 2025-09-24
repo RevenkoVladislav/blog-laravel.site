@@ -15,5 +15,6 @@ class Post extends Model
         'content',
         'main_image',
         'preview_image',
+        'category_id'
     ];
 }
