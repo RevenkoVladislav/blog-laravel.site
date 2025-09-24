@@ -21,7 +21,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center">Название</td>
-                                            <td class="text-center">{{ $ost->title }}</td>
+                                            <td class="text-center">{{ $post->title }}</td>
                                         </tr>
                                         <tr>
                                             <td class="text-center">Дата создания</td>
