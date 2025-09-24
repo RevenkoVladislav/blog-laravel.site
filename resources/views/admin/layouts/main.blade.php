@@ -38,6 +38,9 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.category.index') }}" class="nav-link">Категории</a>
             </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('admin.tag.index') }}" class="nav-link">Тэги</a>
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
