@@ -6,6 +6,7 @@ use App\Http\Controllers\Main;
 use App\Http\Controllers\Admin\Main as AdminMain;
 use App\Http\Controllers\Admin\Category as AdminCategory;
 use App\Http\Controllers\Admin\Tag as AdminTag;
+use App\Http\Controllers\Admin\Post as AdminPost;
 
 Route::name('main.')->group(function () {
     Route::get('/', Main\IndexController::class)->name('index');
@@ -32,6 +33,16 @@ Route::prefix('admin')->name('admin.')->group(function() {
        Route::get('/{tag}/edit', AdminTag\EditController::class)->name('edit');
        Route::patch('/{tag}', AdminTag\UpdateController::class)->name('update');
        Route::delete('/{tag}', AdminTag\DeleteController::class)->name('delete');
+    });
+
+    Route::prefix('posts')->name('post.')->group(function () {
+       Route::get('/', AdminPost\IndexController::class)->name('index');
+       Route::get('/create', AdminPost\CreateController::class)->name('create');
+       Route::post('/', AdminPost\StoreController::class)->name('store');
+       Route::get('/{post}', AdminPost\ShowController::class)->name('show');
+       Route::get('/{post}/edit', AdminPost\EditController::class)->name('edit');
+       Route::patch('/{post}', AdminPost\UpdateController::class)->name('update');
+       Route::delete('/{post}', AdminPost\DeleteController::class)->name('delete');
     });
 });
 
