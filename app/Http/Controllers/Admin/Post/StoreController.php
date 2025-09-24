@@ -15,11 +15,11 @@ class StoreController extends Controller
         $data = $request->validated();
 
         if(!empty($data['main_image'])) {
-            $data['main_image'] = Storage::put('images', $data['main_image']);
+            $data['main_image'] = Storage::disk('public')->put('images', $data['main_image']);
         }
 
         if(!empty($data['preview_image'])) {
-            $data['preview_image'] = Storage::put('images', $data['preview_image']);
+            $data['preview_image'] = Storage::disk('public')->put('images', $data['preview_image']);
         }
 
         Post::create($data);
