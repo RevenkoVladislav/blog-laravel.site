@@ -24,6 +24,8 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string|unique:posts,title',
             'content' => 'required|string',
+            'main_image' => 'nullable|image|mimes:jpeg,png,jpg',
+            'preview_image' => 'nullable|image|mimes:jpeg,png,jpg',
         ];
     }
 }

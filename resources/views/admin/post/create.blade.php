@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-12">
                     <h2>Добавление поста</h2>
-                    <form action="{{ route('admin.post.store') }}" method="POST">
+                    <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group w-50">
                             <input type="text" name="title" class="form-control" placeholder="Название поста" value="{{ old('title') }}">
@@ -23,6 +23,36 @@
                                     {{ old('content') }}
                                 </textarea>
                             @error('content')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Добавить главное изображение</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="main_image">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Загрузка</span>
+                                </div>
+                            </div>
+                            @error('main_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Добавить превью</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="preview_image">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Загрузка</span>
+                                </div>
+                            </div>
+                            @error('preview_image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>

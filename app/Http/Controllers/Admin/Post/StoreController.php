@@ -6,12 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
+
+        if(!empty($data['main_image'])) {
+            $data['main_image'] = Storage::put('images', $data['main_image']);
+        }
+
+        if(!empty($data['preview_image'])) {
+            $data['preview_image'] = Storage::put('images', $data['preview_image']);
+        }
+
         Post::create($data);
         return redirect()->route('admin.post.index');
     }
