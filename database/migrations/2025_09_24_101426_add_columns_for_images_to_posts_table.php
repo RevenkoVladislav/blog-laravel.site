@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('main_image')->nullable()->default('main_default.jpg');
-            $table->string('preview_image')->nullable()->default('preview_default.jpg');
+            $table->string('main_image')->nullable()->default('images/main_default.jpg');
+            $table->string('preview_image')->nullable()->default('images/preview_default.jpg');
         });
     }
 

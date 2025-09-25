@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Добавить">
+                            <input type="submit" class="btn btn-primary w-50" value="Добавить Пост">
                         </div>
                     </form>
                 </div>
