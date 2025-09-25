@@ -12,17 +12,28 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
-        $data = $request->validated();
+        try {
+            $data = $request->validated();
 
-        if(!empty($data['main_image'])) {
-            $data['main_image'] = Storage::disk('public')->put('images', $data['main_image']);
+            if (!empty($data['tag_ids'])) {
+                $tagIds = $data['tag_ids'];
+                unset($data['tag_ids']);
+            }
+
+            if (!empty($data['main_image'])) {
+                $data['main_image'] = Storage::disk('public')->put('images', $data['main_image']);
+            }
+
+            if (!empty($data['preview_image'])) {
+                $data['preview_image'] = Storage::disk('public')->put('images', $data['preview_image']);
+            }
+
+            $post = Post::create($data);
+            $post->tags()->sync($tagIds ?? []);
+        } catch (\Exception $exception) {
+            abort(404);
         }
 
-        if(!empty($data['preview_image'])) {
-            $data['preview_image'] = Storage::disk('public')->put('images', $data['preview_image']);
-        }
-
-        Post::create($data);
         return redirect()->route('admin.post.index');
     }
 }
