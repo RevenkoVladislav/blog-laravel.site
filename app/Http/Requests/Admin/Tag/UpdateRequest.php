@@ -25,4 +25,13 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string|unique:tags'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Это поле обязательное',
+            'title.string' => 'Ожидается тип данных - строка',
+            'title.unique' => 'Данное название уже занято',
+        ];
+    }
 }

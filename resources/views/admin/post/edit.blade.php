@@ -68,6 +68,9 @@
                                         >{{ $category->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group w-50">
                                 <label>Выберите тэги</label>
@@ -84,6 +87,9 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('tag_ids')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-success w-50" value="Редактировать">
@@ -99,3 +105,4 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+

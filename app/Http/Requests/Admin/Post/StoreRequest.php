@@ -31,4 +31,21 @@ class StoreRequest extends FormRequest
             'tag_ids.*' => 'integer|exists:tags,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Это поле не может быть пустым',
+            'title.string' => 'Данные должны быть типа - строка',
+            'title.unique' => 'Название уже занято, придумайте уникальное название',
+            'content.required' => 'Это поле не может быть пустым',
+            'content.string' => 'Данные должны быть типа - строка',
+            'main_image' => ' Разрешена загрузка только формата jpeg, png, jpg',
+            'preview_image' => ' Разрешена загрузка только формата jpeg, png, jpg',
+            'category_id.required' => 'Это поле обязательно',
+            'category_id.integer' => 'Пожалуйста выберите корректную категорию',
+            'tag.ids.array' => 'Ожидалось получить массив из тэгов',
+            'tag_ids.*' => 'Выберите корректные тэги'
+        ];
+    }
 }

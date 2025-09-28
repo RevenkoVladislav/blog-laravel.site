@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Main as AdminMain;
 use App\Http\Controllers\Admin\Category as AdminCategory;
 use App\Http\Controllers\Admin\Tag as AdminTag;
 use App\Http\Controllers\Admin\Post as AdminPost;
+use App\Http\Controllers\Admin\User as AdminUser;
 
 Route::name('main.')->group(function () {
     Route::get('/', Main\IndexController::class)->name('index');
@@ -43,6 +44,18 @@ Route::prefix('admin')->name('admin.')->group(function() {
        Route::get('/{post}/edit', AdminPost\EditController::class)->name('edit');
        Route::patch('/{post}', AdminPost\UpdateController::class)->name('update');
        Route::delete('/{post}', AdminPost\DeleteController::class)->name('delete');
+    });
+
+    Route::prefix('uesrs')->name('user.')->group(function () {
+        Route::get('/', AdminUser\IndexController::class)->name('index');
+        Route::get('/create', AdminUser\CreateController::class)->name('create');
+        Route::post('/', AdminUser\StoreController::class)->name('store');
+        Route::get('/{user}', AdminUser\ShowController::class)->name('show');
+        Route::get('/{user}/edit', AdminUser\EditController::class)->name('edit');
+        Route::patch('/{user}/edit-name', AdminUser\UpdateNameController::class)->name('updateName');
+        Route::patch('/{user}/edit-email', AdminUser\UpdateEmailController::class)->name('updateEmail');
+        Route::patch('/{user}/edit-password', AdminUser\UpdatePasswordController::class)->name('updatePassword');
+        Route::delete('/{user}', AdminUser\DeleteController::class)->name('delete');
     });
 });
 
