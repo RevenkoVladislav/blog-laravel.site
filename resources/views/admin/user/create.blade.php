@@ -27,6 +27,19 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="">Выберите роль</label>
+                            <select class="custom-select" name="role">
+                                @foreach($roles as $id => $role)
+                                    <option value="{{ $id }}"
+                                        {{ $id == old('role') ? 'selected' : '' }}
+                                    >{{ $role }}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label>Пароль</label>
                             <input type="password" name="password" class="form-control">
                             @error('password')

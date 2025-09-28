@@ -55,6 +55,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::patch('/{user}/edit-name', AdminUser\UpdateNameController::class)->name('updateName');
         Route::patch('/{user}/edit-email', AdminUser\UpdateEmailController::class)->name('updateEmail');
         Route::patch('/{user}/edit-password', AdminUser\UpdatePasswordController::class)->name('updatePassword');
+        Route::patch('/{user}/edit-role', AdminUser\UpdateRoleController::class)->name('updateRole');
         Route::delete('/{user}', AdminUser\DeleteController::class)->name('delete');
     });
 });

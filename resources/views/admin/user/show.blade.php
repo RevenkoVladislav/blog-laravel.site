@@ -28,6 +28,10 @@
                                             <td class="text-center">{{ $user->email }}</td>
                                         </tr>
                                         <tr>
+                                            <td class="text-center">Роль</td>
+                                            <td class="text-center">{{ $roles[$user->role] }}</td>
+                                        </tr>
+                                        <tr>
                                             <td class="text-center">Дата регистрации</td>
                                             <td class="text-center">{{ $user->created_at->toDateString() }}</td>
                                         </tr>

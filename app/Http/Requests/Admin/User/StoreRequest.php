@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin\User;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -24,7 +26,8 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string|min:5|unique:users,name',
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'role' => 'required|integer', Rule::in(array_keys(User::getRoles())),
         ];
     }
 
@@ -43,6 +46,9 @@ class StoreRequest extends FormRequest
           'password.string' => 'Ожидаемый тип данных - строка',
           'password.min' => 'Пароль должен быть минимум из 6ти символов',
           'password.confirmed' => 'Введенные пароли не совпадают',
+           'role.required' => 'Это обязательное поле',
+           'role.integer' => 'Ожидается тип данных - число',
+           'role.in' => 'Недопустимое значение роли'
         ];
     }
 }

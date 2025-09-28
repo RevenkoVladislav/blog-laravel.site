@@ -61,6 +61,27 @@
                             </div>
                             <input type="submit" class="btn btn-success w-100" value="Редактировать пароль">
                         </form>
+                        <hr>
+
+                        <h4>Редактировать роль</h4>
+                        <form action="{{ route('admin.user.updateRole', $user->id) }}" method="POST" class="w-25">
+                            @method('PATCH')
+                            @csrf
+                        <div class="form-group">
+                            <label for="">Выберите роль</label>
+                            <select class="custom-select" name="role">
+                                @foreach($roles as $id => $role)
+                                    <option value="{{ $id }}"
+                                        {{ $id == $user->role ? 'selected' : '' }}
+                                    >{{ $role }}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                            <input type="submit" class="btn btn-success w-100 mb-3" value="Редактировать роль">
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->

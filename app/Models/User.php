@@ -18,12 +18,17 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+
+    const ROLE_ADMIN = '0';
+    const ROLE_READER = '1';
+
     protected $table = 'users';
 
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -46,6 +51,14 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+        ];
+    }
+
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_ADMIN => 'Админ',
+            self::ROLE_READER => 'Читатель',
         ];
     }
 }
