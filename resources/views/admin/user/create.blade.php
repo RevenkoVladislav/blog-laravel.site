@@ -39,6 +39,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <!-- Перешел на автогенерацию пароля
                         <div class="form-group">
                             <label>Пароль</label>
                             <input type="password" name="password" class="form-control">
@@ -46,6 +47,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <label>Повторите пароль</label>
                             <input type="password" name="password_confirmation" class="form-control">
@@ -53,6 +55,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        -->
                         <input type="submit" class="btn btn-primary" value="Добавить">
                     </form>
                 </div>
