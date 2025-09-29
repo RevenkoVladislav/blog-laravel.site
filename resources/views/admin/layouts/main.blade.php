@@ -50,7 +50,16 @@
                 <a href="{{ route('admin.tag.index') }}" class="nav-link">Тэги</a>
             </li>
         </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-info">Выйти</button>
+                </form>
+            </li>
+        </ul>
     </nav>
+
     <!-- /.navbar -->
 
 @include('admin.includes.sidebar')

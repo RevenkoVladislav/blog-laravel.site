@@ -19,8 +19,8 @@ class User extends Authenticatable
      * @var list<string>
      */
 
-    const ROLE_ADMIN = '0';
-    const ROLE_READER = '1';
+    const ROLE_ADMIN = 0;
+    const ROLE_READER = 1;
 
     protected $table = 'users';
 
@@ -51,6 +51,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => 'integer',
         ];
     }
 

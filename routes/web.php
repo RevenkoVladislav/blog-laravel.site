@@ -13,7 +13,7 @@ Route::name('main.')->group(function () {
     Route::get('/', Main\IndexController::class)->name('index');
 });
 
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function() {
     Route::get('/', AdminMain\IndexController::class)->name('index');
 
     Route::prefix('categories')->name('category.')->group(function() {

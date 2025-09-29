@@ -22,7 +22,7 @@ class UpdateNameRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:5|unique:users,name',
+            'name' => 'required|string|min:4|unique:users,name',
         ];
     }
 
@@ -31,7 +31,7 @@ class UpdateNameRequest extends FormRequest
         return [
             'name.required' => 'Обязательно заполнить это поле',
             'name.string' => 'Ожидаемый тип данных - строка',
-            'name.min' => 'Логин не менее 5ти символов',
+            'name.min' => 'Логин не менее 4ех символов',
             'name.unique' => 'Пользователь с таким логином уже зарегистрирован',
         ];
     }
