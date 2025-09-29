@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\StoreRequest;
 use App\Mail\User\PasswordMail;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -20,6 +21,7 @@ class StoreController extends Controller
         $data['password'] = Hash::make($password);
         $user = User::create($data);
         Mail::to($user->email)->send(new PasswordMail($password, $user->name));
+//        event(new Registered($user)); сайт падает т.к на используемом сервисе ограничение на отправку писем
         return redirect()->route('admin.user.index');
     }
 }
