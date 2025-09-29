@@ -21,7 +21,7 @@ class StoreController extends Controller
         $data['password'] = Hash::make($password);
         $user = User::create($data);
         Mail::to($user->email)->send(new PasswordMail($password, $user->name));
-//        event(new Registered($user)); сайт падает т.к на используемом сервисе ограничение на отправку писем
+        event(new Registered($user));
         return redirect()->route('admin.user.index');
     }
 }
