@@ -5,41 +5,13 @@
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item">
-                    <a href="{{ route('admin.user.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-users"></i>
-                        <p>
-                            Пользователи
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.post.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-clipboard"></i>
-                        <p>
-                            Посты
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.category.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th-list"></i>
-                        <p>
-                            Категории
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.tag.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tags"></i>
-                        <p>
-                            Тэги
-                        </p>
-                    </a>
-                </li>
+                <x-sidebar-menu route="admin.index" icon="fa-home" label="Домой" activePattern="admin.index"/>
+                <x-sidebar-menu route="admin.user.index" icon="fa-users" label="Пользователи"/>
+                <x-sidebar-menu route="admin.post.index" icon="fa-clipboard" label="Посты"/>
+                <x-sidebar-menu route="admin.category.index" icon="fa-th-list" label="Категории"/>
+                <x-sidebar-menu route="admin.tag.index" icon="fa-tags" label="Тэги"/>
             </ul>
         </nav>
     </div>
     <!-- /.sidebar -->
-
 </aside>

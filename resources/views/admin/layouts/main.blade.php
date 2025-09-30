@@ -34,21 +34,11 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.index') }}" class="nav-link">Домой</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.user.index') }}" class="nav-link">Пользователи</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.post.index') }}" class="nav-link">Посты</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.category.index') }}" class="nav-link">Категории</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.tag.index') }}" class="nav-link">Тэги</a>
-            </li>
+            <x-navbar-menu route="admin.index" label="Домой" activePattern="admin.index"/>
+            <x-navbar-menu route="admin.user.index" label="Пользователи"/>
+            <x-navbar-menu route="admin.post.index" label="Посты"/>
+            <x-navbar-menu route="admin.category.index" label="Категории"/>
+            <x-navbar-menu route="admin.tag.index" label="Тэги"/>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">

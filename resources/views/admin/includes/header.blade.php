@@ -7,11 +7,11 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Домой</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.user.index') }}">Пользователи</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.post.index') }}">Посты</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.category.index') }}">Категории</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.tag.index') }}">Тэги</a></li>
+                    <x-breadcrumb-link route="admin.index" label="Домой" activePattern="admin.index"/>
+                    <x-breadcrumb-link route="admin.user.index" label="Пользователи" />
+                    <x-breadcrumb-link route="admin.post.index" label="Посты" />
+                    <x-breadcrumb-link route="admin.category.index" label="Категории" />
+                    <x-breadcrumb-link route="admin.tag.index" label="Тэги" />
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
