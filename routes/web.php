@@ -49,7 +49,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified']
        Route::delete('/{post}', AdminPost\DeleteController::class)->name('delete');
     });
 
-    Route::prefix('uesrs')->name('user.')->group(function () {
+    Route::prefix('users')->name('user.')->group(function () {
         Route::get('/', AdminUser\IndexController::class)->name('index');
         Route::get('/create', AdminUser\CreateController::class)->name('create');
         Route::post('/', AdminUser\StoreController::class)->name('store');
