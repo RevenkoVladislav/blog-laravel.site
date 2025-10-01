@@ -12,7 +12,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>70</h3>
+                            <h3>{{ $data['likesCount'] }}</h3>
                             <p>Понравившиеся посты</p>
                         </div>
                         <div class="icon">
@@ -26,7 +26,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>12</h3>
+                            <h3>{{ $data['commentsCount'] }}</h3>
                             <p>Комментарии</p>
                         </div>
                         <div class="icon">
