@@ -18,7 +18,14 @@
                 </div>
                 @endforeach
             </div>
+            <div class="row">
+                <div class="mx-auto" style="margin-top: -80px;">
+                    {{ $posts->links() }}
+                </div>
+            </div>
         </section>
+
+
 
         <div class="row">
             <div class="col-md-8">
