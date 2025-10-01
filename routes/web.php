@@ -72,6 +72,7 @@ Route::prefix('personal')->name('personal.')->middleware(['auth', 'verified'])->
 
     Route::prefix('liked')->name('liked.')->group(function() {
         Route::get('/', PersonalLiked\IndexController::class)->name('index');
+        Route::delete('/{post}', PersonalLiked\DeleteController::class)->name('delete');
     });
 });
 
