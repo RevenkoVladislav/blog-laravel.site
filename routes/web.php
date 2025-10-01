@@ -11,9 +11,15 @@ use App\Http\Controllers\Admin\User as AdminUser;
 use App\Http\Controllers\Personal\Main as PersonalMain;
 use App\Http\Controllers\Personal\Comment as PersonalComment;
 use App\Http\Controllers\Personal\Liked as PersonalLiked;
+use App\Http\Controllers\Post as PostController;
 
-Route::name('main.')->group(function () {
+Route::name('main.')->group(function() {
     Route::get('/', Main\IndexController::class)->name('index');
+});
+
+Route::prefix('posts')->name('post.')->group(function() {
+    Route::get('/', PostController\IndexController::class)->name('index');
+    Route::get('/{post}', PostController\ShowController::class)->name('show');
 });
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified'])->group(function() {
