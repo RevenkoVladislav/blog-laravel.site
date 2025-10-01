@@ -26,4 +26,14 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
         //сперва указываю pivot таблицу - post_tags, потом идет foreignKey post_id, далее указываю С КЕМ отношение
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function likedUsers()
+    {
+        return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
+    }
 }
