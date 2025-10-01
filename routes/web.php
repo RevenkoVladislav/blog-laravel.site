@@ -68,6 +68,9 @@ Route::prefix('personal')->name('personal.')->middleware(['auth', 'verified'])->
 
     Route::prefix('comments')->name('comment.')->group(function() {
        Route::get('/', PersonalComment\IndexController::class)->name('index');
+       Route::get('/{comment}/edit', PersonalComment\EditController::class)->name('edit');
+       Route::patch('/{comment}', PersonalComment\UpdateController::class)->name('update');
+       Route::delete('/{comment}', PersonalComment\DeleteController::class)->name('delete');
     });
 
     Route::prefix('liked')->name('liked.')->group(function() {
