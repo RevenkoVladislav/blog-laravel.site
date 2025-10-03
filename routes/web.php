@@ -58,6 +58,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified']
        Route::get('/', AdminPost\IndexController::class)->name('index');
        Route::get('/create', AdminPost\CreateController::class)->name('create');
        Route::post('/', AdminPost\StoreController::class)->name('store');
+       Route::patch('/restore', AdminPost\RestoreController::class)->name('restore');
+       Route::delete('/destroy', AdminPost\DestroyController::class)->name('destroy');
        Route::get('/{post}', AdminPost\ShowController::class)->name('show');
        Route::get('/{post}/edit', AdminPost\EditController::class)->name('edit');
        Route::patch('/{post}', AdminPost\UpdateController::class)->name('update');
