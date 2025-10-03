@@ -11,6 +11,6 @@ class IndexController extends Controller
     {
         $user = auth()->user();
         $comments = $user->comments;
-        return view('personal.comment.index', compact('user', 'comments'));
+        return view('personal.comment.index', ['user' => $user, 'comments' => $comments]);
     }
 }

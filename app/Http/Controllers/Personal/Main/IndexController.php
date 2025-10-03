@@ -12,7 +12,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $user = auth()->user();
-        $data['commentsCount'] = Comment::all()->count();
+        $data['commentsCount'] = $user->comments->count();
         $data['likesCount'] = $user->likedPosts->count();
         return view('personal.main.index', ['user' => $user, 'data' => $data]);
     }
