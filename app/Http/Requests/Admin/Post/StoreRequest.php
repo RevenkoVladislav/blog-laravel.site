@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|unique:posts,title',
+            'title' => 'required|string',
             'content' => 'required|string',
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg',
             'preview_image' => 'nullable|image|mimes:jpeg,png,jpg',
@@ -38,7 +38,6 @@ class StoreRequest extends FormRequest
         return [
             'title.required' => 'Это поле не может быть пустым',
             'title.string' => 'Данные должны быть типа - строка',
-            'title.unique' => 'Название уже занято, придумайте уникальное название',
             'content.required' => 'Это поле не может быть пустым',
             'content.string' => 'Данные должны быть типа - строка',
             'main_image' => ' Разрешена загрузка только формата jpeg, png, jpg',
