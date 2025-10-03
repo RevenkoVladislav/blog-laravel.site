@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    <!-- ЗАГОТОВКА СТРАНИЦЫ ПОД ГЛАВНУЮ -->
 <main class="blog">
     <div class="container">
         <h1 class="edica-page-title" data-aos="fade-up">Лента</h1>

@@ -14,6 +14,6 @@ class StoreController extends Controller
     {
         //отношение лайков к юзерам, toggle() проверяет есть ли лайк у данного пользователя к посту
         auth()->user()->likedPosts()->toggle($post);
-        return redirect()->route('post.index', $post);
+        return redirect()->back();
     }
 }

@@ -21,6 +21,8 @@ class Post extends Model
         'tag_ids'
     ];
 
+    protected $withCount = ['likedUsers'];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');

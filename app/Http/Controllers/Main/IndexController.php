@@ -10,6 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+        //заготовка страницы под главную страницу (на будущшее)
         return redirect()->route('post.index');
     }
 }

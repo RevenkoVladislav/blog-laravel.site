@@ -32,6 +32,10 @@
                                     </button>
                                 </form>
                             @endauth
+                                @guest
+                                    <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
+                                    <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
+                                @endguest
                             </div>
                         </div>
                     @endforeach
@@ -72,6 +76,10 @@
                                                 </button>
                                             </form>
                                         @endauth
+                                        @guest
+                                            <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
+                                            <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
+                                        @endguest
                                     </div>
                                 </div>
                             @endforeach
@@ -105,6 +113,10 @@
                                                     </form>
                                                     <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
                                                 @endauth
+                                                    @guest
+                                                        <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
+                                                        <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
+                                                    @endguest
                                             </div>
                                         </div>
                                     </a>
