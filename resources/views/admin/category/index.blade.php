@@ -68,6 +68,7 @@
                                                     href="{{ route('admin.category.edit', $category) }}"
                                                     class="text-success"><i class="far fa-pencil-alt"></i></a></td>
                                             <td class="text-center">
+                                                @unless($category->is_system)
                                                 <form action="{{ route('admin.category.delete', $category) }}"
                                                       method="POST">
                                                     @method('DELETE')
@@ -77,6 +78,7 @@
                                                         <i class="far fa-trash text-danger" role="button"></i>
                                                     </button>
                                                 </form>
+                                                @endunless
                                             </td>
                                         </tr>
                                     @endforeach
