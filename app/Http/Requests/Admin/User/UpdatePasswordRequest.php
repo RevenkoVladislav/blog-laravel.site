@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\User;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePasswordRequest extends FormRequest
@@ -11,7 +12,7 @@ class UpdatePasswordRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->check() && auth()->user()->role === User::ROLE_ADMIN;
     }
 
     /**

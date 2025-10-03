@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\Post;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; //поменять позже через gate или policy или is_admin
+        return auth()->check() && auth()->user()->role === User::ROLE_ADMIN;
     }
 
     /**
