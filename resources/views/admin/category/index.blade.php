@@ -30,9 +30,9 @@
 
                 @if(session('info'))
                     <div class="row p-2">
-                    <div class="alert alert-info text-center w-45">
-                        {{ session('info') }}
-                    </div>
+                        <div class="alert alert-info text-center w-45">
+                            {{ session('info') }}
+                        </div>
                     </div>
                 @endif
 

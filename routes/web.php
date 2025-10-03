@@ -46,6 +46,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified']
        Route::get('/', AdminTag\IndexController::class)->name('index');
        Route::get('/create', AdminTag\CreateController::class)->name('create');
        Route::post('/', AdminTag\StoreController::class)->name('store');
+       Route::patch('/restore', AdminTag\RestoreController::class)->name('restore');
+       Route::delete('/destroy', AdminTag\DestroyController::class)->name('destroy');
        Route::get('/{tag}', AdminTag\ShowController::class)->name('show');
        Route::get('/{tag}/edit', AdminTag\EditController::class)->name('edit');
        Route::patch('/{tag}', AdminTag\UpdateController::class)->name('update');
