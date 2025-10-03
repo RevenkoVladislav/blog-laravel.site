@@ -7,7 +7,7 @@
 
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
                 • {{ $date->translatedFormat('F') }} {{ $date->day }}, {{ $date->year }} • {{ $date->format('H:i') }}
-                • {{ $post->comments->count() }} Комментариев</p>
+                • @auth {{ $post->comments->count() }} Комментариев • {{ $post->liked_users_count }} Лайков @endauth</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/' . $post->main_image) }}" alt="featured image" class="w-100">
             </section>
@@ -40,20 +40,20 @@
                     @endauth
 
                     @if($relatedPosts->count() > 0)
-                    <section class="related-posts">
-                        <h2 class="section-title mb-4 text-center" data-aos="fade-up">Схожие посты</h2>
-                        <div class="row">
-                            @foreach($relatedPosts as $relatedPost)
-                                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                    <img src="{{ asset('storage/' . $relatedPost->main_image) }}" alt="related post"
-                                         class="post-thumbnail">
-                                    <p class="post-category">{{ $relatedPost->category->title }}</p>
-                                    <a href="{{ route('post.show', $relatedPost->id) }}"><h5
-                                            class="post-title">{{ $relatedPost->title }}</h5></a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </section>
+                        <section class="related-posts">
+                            <h2 class="section-title mb-4 text-center" data-aos="fade-up">Схожие посты</h2>
+                            <div class="row">
+                                @foreach($relatedPosts as $relatedPost)
+                                    <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                                        <img src="{{ asset('storage/' . $relatedPost->main_image) }}" alt="related post"
+                                             class="post-thumbnail">
+                                        <p class="post-category">{{ $relatedPost->category->title }}</p>
+                                        <a href="{{ route('post.show', $relatedPost->id) }}"><h5
+                                                class="post-title">{{ $relatedPost->title }}</h5></a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </section>
                     @endif
 
                     @auth
