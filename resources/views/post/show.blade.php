@@ -49,7 +49,7 @@
                               </div>
                                 <span
                                     class="text-muted float-right">Опубликовано: {{ $comment->dateAsCarbon->diffForHumans() }}</span>
-                            </span><!-- /.username -->
+                            </span>
                                     Сообщение: {!! $comment->message !!}
                                 </div>
                             </div>
