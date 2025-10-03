@@ -12,6 +12,7 @@ use App\Http\Controllers\Personal\Main as PersonalMain;
 use App\Http\Controllers\Personal\Comment as PersonalComment;
 use App\Http\Controllers\Personal\Liked as PersonalLiked;
 use App\Http\Controllers\Post as PostController;
+use App\Http\Controllers\Post\Comment as PostComment;
 
 Route::name('main.')->group(function() {
     Route::get('/', Main\IndexController::class)->name('index');
@@ -20,6 +21,10 @@ Route::name('main.')->group(function() {
 Route::prefix('posts')->name('post.')->group(function() {
     Route::get('/', PostController\IndexController::class)->name('index');
     Route::get('/{post}', PostController\ShowController::class)->name('show');
+
+    Route::prefix('{post}/comments')->name('comment.')->group(function() {
+        Route::post('/', PostComment\StoreController::class)->name('store');
+    });
 });
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified'])->group(function() {

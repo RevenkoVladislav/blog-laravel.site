@@ -18,10 +18,33 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="edicaMainNav">
-                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav mx-auto ml-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}">blog-laravel</a>
                     </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                        </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('personal.index') }}">Личный кабинет</a>
+                        </li>
+                    @if(auth()->user()->isAdmin())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.index') }}">Админ Панель</a>
+                            </li>
+                        @endif
+
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn"><b>Выйти</b></button>
+                            </form>
+                        </li>
+                    @endauth
+
                 </ul>
             </div>
         </nav>
