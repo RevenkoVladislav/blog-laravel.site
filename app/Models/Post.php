@@ -21,7 +21,7 @@ class Post extends Model
         'tag_ids'
     ];
 
-    protected $withCount = ['likedUsers'];
+    protected $withCount = ['likedUsers', 'comments'];
 
     public function tags()
     {

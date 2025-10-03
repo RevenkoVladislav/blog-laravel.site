@@ -12,7 +12,9 @@
                                 <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
                             </div>
                             <div class="d-flex justify-content-between">
+                                <a href="{{ route('category.post.index', $post->category) }}">
                                 <p class="blog-post-category">{{ $post->category->title }}</p>
+                                </a>
                             </div>
                             <div class="d-flex justify-content-between">
                             <a href="{{ route('post.show', $post) }}" class="blog-post-permalink">
@@ -57,7 +59,9 @@
                                     <div class="blog-post-thumbnail-wrapper">
                                         <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
                                     </div>
+                                    <a href="{{ route('category.post.index', $post->category) }}">
                                     <p class="blog-post-category">{{ $post->category->title }}</p>
+                                    </a>
                                     <div class="d-flex justify-content-between">
                                         <a href="{{ route('post.show', $post) }}" class="blog-post-permalink">
                                             <h6 class="blog-post-title">{{ $post->title }}</h6>

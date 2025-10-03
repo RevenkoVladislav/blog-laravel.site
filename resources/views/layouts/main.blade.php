@@ -22,6 +22,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}">blog-laravel</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Войти</a>

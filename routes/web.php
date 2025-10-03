@@ -14,6 +14,8 @@ use App\Http\Controllers\Personal\Liked as PersonalLiked;
 use App\Http\Controllers\Post as PostController;
 use App\Http\Controllers\Post\Comment as PostComment;
 use App\Http\Controllers\Post\Like as PostLike;
+use App\Http\Controllers\Category as Category;
+use App\Http\Controllers\Category\Post as CategoryPost;
 
 Route::name('main.')->group(function() {
     Route::get('/', Main\IndexController::class)->name('index');
@@ -30,6 +32,14 @@ Route::prefix('posts')->name('post.')->group(function() {
     Route::prefix('{post}/likes')->name('like.')->group(function() {
         Route::post('/', PostLike\StoreController::class)->name('store');
     });
+});
+
+Route::prefix('categories')->name('category.')->group(function() {
+   Route::get('/', Category\IndexController::class)->name('index');
+
+   Route::prefix('{category}/posts')->name('post.')->group(function() {
+      Route::get('/', CategoryPost\IndexController::class)->name('index');
+   });
 });
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified'])->group(function() {
