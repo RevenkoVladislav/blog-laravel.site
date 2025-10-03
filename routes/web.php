@@ -34,6 +34,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified']
        Route::get('/', AdminCategory\IndexController::class)->name('index');
        Route::get('/create', AdminCategory\CreateController::class)->name('create');
        Route::post('/', AdminCategory\StoreController::class)->name('store');
+       Route::patch('/restore', AdminCategory\RestoreController::class)->name('restore');
+       Route::delete('/destroy', AdminCategory\DestroyController::class)->name('destroy');
        Route::get('/{category}', AdminCategory\ShowController::class)->name('show');
        Route::get('/{category}/edit', AdminCategory\EditController::class)->name('edit');
        Route::patch('/{category}', AdminCategory\UpdateController::class)->name('update');
