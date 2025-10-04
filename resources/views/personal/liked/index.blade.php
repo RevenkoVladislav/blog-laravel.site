@@ -27,9 +27,9 @@
                                     @foreach($posts as $post)
                                         <tr>
                                             <td class="text-center">{{ $post->id }}</td>
-                                            <td class="text-center"><a href="{{ route('admin.post.show', $post) }}" class="text-info">{{ $post->title }}</a></td>
+                                            <td class="text-center"><a href="{{ route('post.show', $post) }}" class="text-info">{{ $post->title }}</a></td>
                                             <td class="text-center">{{ $post->created_at->toDateString() }}</td>
-                                            <td class="text-center"><a href="{{ route('admin.post.show', $post) }}"><i class="far fa-eye"></i></a></td>
+                                            <td class="text-center"><a href="{{ route('post.show', $post) }}"><i class="far fa-eye"></i></a></td>
                                             <td class="text-center">
                                                 <form action="{{ route('personal.liked.delete', $post) }}" method="POST">
                                                     @method('DELETE')
