@@ -7,7 +7,7 @@
 
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
                 • {{ $date->translatedFormat('F') }} {{ $date->day }}, {{ $date->year }} • {{ $date->format('H:i') }}
-                • @auth {{ $post->comments->count() }} Комментариев • {{ $post->liked_users_count }} Лайков @endauth</p>
+                • {{ $post->comments->count() }} Комментариев • {{ $post->liked_users_count }} Лайков</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/' . $post->main_image) }}" alt="featured image" class="w-100">
             </section>
@@ -22,6 +22,10 @@
 
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+
+                    @guest
+                        <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
+                    @endguest
 
                     @auth()
                         <section class="py-3">
@@ -56,14 +60,13 @@
                         </section>
                     @endif
 
-                    @auth
-                        @if($post->comments->isNotEmpty())
-                            <section class="comment-list mb-5">
-                                <h2 class="section-title mb-5" data-aos="fade-up">Комментарии
-                                    ({{ $post->comments->count() }})</h2>
-                                @foreach($post->comments as $comment)
-                                    <div class="card-footer card-comments">
-                                        <div class="comment-text mb-3">
+                    @if($post->comments->isNotEmpty())
+                        <section class="comment-list mb-5">
+                            <h2 class="section-title mb-5" data-aos="fade-up">Комментарии
+                                ({{ $post->comments->count() }})</h2>
+                            @foreach($post->comments as $comment)
+                                <div class="card-footer card-comments">
+                                    <div class="comment-text mb-3">
                             <span class="username">
                               <div>
                                   Автор: {{ $comment->user->name }}
@@ -71,14 +74,14 @@
                                 <span
                                     class="text-muted float-right">Опубликовано: {{ $comment->dateAsCarbon->diffForHumans() }}</span>
                             </span>
-                                            Сообщение: {!! $comment->message !!}
-                                        </div>
+                                        Сообщение: {!! $comment->message !!}
                                     </div>
-                                @endforeach
-                            </section>
-                        @endif
+                                </div>
+                            @endforeach
+                        </section>
+                    @endif
 
-
+                    @auth
                         <section class="comment-section">
                             <h2 class="section-title mb-5" data-aos="fade-up">Отправить комментарий</h2>
                             <form action="{{ route('post.comment.store', $post) }}" method="POST">

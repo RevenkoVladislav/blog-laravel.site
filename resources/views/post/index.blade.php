@@ -13,35 +13,39 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('category.post.index', $post->category) }}">
-                                <p class="blog-post-category">{{ $post->category->title }}</p>
+                                    <p class="blog-post-category">{{ $post->category->title }}</p>
                                 </a>
                             </div>
                             <div class="d-flex justify-content-between">
-                            <a href="{{ route('post.show', $post) }}" class="blog-post-permalink">
-                                <h6 class="blog-post-title">{{ $post->title }}</h6>
-                            </a>
-                            @auth()
-                                <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
-                                <form action="{{ route('post.like.store', $post) }}" method="POST">
-                                    @csrf
-                                    <span class="blog-post-title">{{ $post->liked_users_count }}</span>
-                                    <button type="submit" class="border-0 bg-transparent">
-                                        @if(auth()->user()->likedPosts->contains($post->id))
-                                            <i class="fas fa-heart"></i>
-                                        @else
-                                            <i class="far fa-heart"></i>
-                                        @endif
-                                    </button>
-                                </form>
-                            @endauth
+                                <a href="{{ route('post.show', $post) }}" class="blog-post-permalink">
+                                    <h6 class="blog-post-title">{{ $post->title }}</h6>
+                                </a>
+                                @auth()
+                                    <span class="blog-post-title">{{ $post->comments_count }} • <i
+                                            class="far fa-comment"></i></span>
+                                    <form action="{{ route('post.like.store', $post) }}" method="POST">
+                                        @csrf
+                                        <span class="blog-post-title">{{ $post->liked_users_count }}</span>
+                                        <button type="submit" class="border-0 bg-transparent">
+                                            @if(auth()->user()->likedPosts->contains($post->id))
+                                                <i class="fas fa-heart"></i>
+                                            @else
+                                                <i class="far fa-heart"></i>
+                                            @endif
+                                        </button>
+                                    </form>
+                                @endauth
                                 @guest
-                                    <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
-                                    <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
+                                    <span class="blog-post-title">{{ $post->comments_count }} • <i
+                                            class="far fa-comment"></i></span>
+                                    <span class="blog-post-title">{{ $post->liked_users_count }} <i
+                                            class="far fa-heart"></i></span>
                                 @endguest
                             </div>
                         </div>
                     @endforeach
                 </div>
+
                 <div class="row">
                     <div class="mx-auto" style="margin-top: -80px;">
                         {{ $posts->links() }}
@@ -60,14 +64,15 @@
                                         <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
                                     </div>
                                     <a href="{{ route('category.post.index', $post->category) }}">
-                                    <p class="blog-post-category">{{ $post->category->title }}</p>
+                                        <p class="blog-post-category">{{ $post->category->title }}</p>
                                     </a>
                                     <div class="d-flex justify-content-between">
                                         <a href="{{ route('post.show', $post) }}" class="blog-post-permalink">
                                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                                         </a>
                                         @auth()
-                                            <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
+                                            <span class="blog-post-title">{{ $post->comments_count }} • <i
+                                                    class="far fa-comment"></i></span>
                                             <form action="{{ route('post.like.store', $post) }}" method="POST">
                                                 @csrf
                                                 <span class="blog-post-title">{{ $post->liked_users_count }}</span>
@@ -81,8 +86,10 @@
                                             </form>
                                         @endauth
                                         @guest
-                                            <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
-                                            <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
+                                            <span class="blog-post-title">{{ $post->comments_count }} • <i
+                                                    class="far fa-comment"></i></span>
+                                            <span class="blog-post-title">{{ $post->liked_users_count }} <i
+                                                    class="far fa-heart"></i></span>
                                         @endguest
                                     </div>
                                 </div>
@@ -106,7 +113,8 @@
                                                 @auth()
                                                     <form action="{{ route('post.like.store', $post) }}" method="POST">
                                                         @csrf
-                                                        <span class="blog-post-title">{{ $post->liked_users_count }}</span>
+                                                        <span
+                                                            class="blog-post-title">{{ $post->liked_users_count }}</span>
                                                         <button type="submit" class="border-0 bg-transparent">
                                                             @if(auth()->user()->likedPosts->contains($post->id))
                                                                 <i class="fas fa-heart"></i>
@@ -115,12 +123,16 @@
                                                             @endif
                                                         </button>
                                                     </form>
-                                                    <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
+                                                    <span class="blog-post-title">{{ $post->comments_count }} • <i
+                                                            class="far fa-comment"></i></span>
                                                 @endauth
-                                                    @guest
-                                                        <span class="blog-post-title">{{ $post->comments_count }} • <i class="far fa-comment"></i></span>
-                                                        <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>
-                                                    @endguest
+
+                                                @guest
+                                                    <span class="blog-post-title">{{ $post->comments_count }} • <i
+                                                            class="far fa-comment"></i></span>
+                                                    <span class="blog-post-title">{{ $post->liked_users_count }} <i
+                                                            class="far fa-heart"></i></span>
+                                                @endguest
                                             </div>
                                         </div>
                                     </a>

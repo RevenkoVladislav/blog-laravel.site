@@ -13,11 +13,18 @@ class IndexController extends Controller
     {
         {
             //Добавляем свойства comments_count и liked_users_count для каждого поста, чтобы вывести их общее количество
-            $dataPost = Post::withCount(['comments', 'likedUsers']);
+            $posts = Post::withCount(['comments', 'likedUsers'])
+                ->paginate(6);
 
-            $posts = $dataPost->paginate(6);
-            $randomPosts = $dataPost->get()->random(4);
-            $likedPosts = $dataPost->orderBy('liked_users_count', 'DESC')->get()->take(4);
+            $randomPosts = Post::withCount(['comments', 'likedUsers'])
+                ->inRandomOrder()
+                ->limit(4)
+                ->get();
+
+            $likedPosts = Post::withCount(['comments', 'likedUsers'])
+                ->orderByDesc('liked_users_count')
+                ->limit(4)
+                ->get();
             // orderBy, чтобы отсортировать по самым наибольшим лайкам,
             // likedUsers это метод отношения из модели Post
             // данный метод посчитает сколько пользователей поставит лайк и вернет через отношение, т.е при dd будет аттрибут "liked_users_count" => к примеру со значением 5 и т.д.
