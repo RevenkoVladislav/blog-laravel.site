@@ -68,6 +68,7 @@
                                 <div class="card-footer card-comments">
                                     <div class="comment-text mb-3">
                             <span class="username">
+
                               <div>
                                   Автор: {{ $comment->user->name }}
                               </div>
@@ -75,6 +76,38 @@
                                     class="text-muted float-right">Опубликовано: {{ $comment->dateAsCarbon->diffForHumans() }}</span>
                             </span>
                                         Сообщение: {!! $comment->message !!}
+                                    </div>
+                                    <div class="d-flex">
+
+                                        @auth()
+                                        @if(auth()->user()->isAdmin())
+
+                                            <a href="{{ route('admin.comment.edit', $comment) }}" class="text-success nav-link"><i
+                                                    class="far fa-pencil-alt"></i></a>
+                                            <form action="{{ route('admin.comment.delete', $comment) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="border-0 bg-transparent nav-link"
+                                                        onclick="return confirm('Вы хотите удалить комментарий ?')">
+                                                    <i class="far fa-trash text-danger" role="button"></i>
+                                                </button>
+                                            </form>
+
+                                        @elseif(auth()->user()->id === $comment->user->id)
+
+                                            <a href="{{ route('personal.comment.edit', $comment) }}" class="text-success nav-link"><i
+                                                    class="far fa-pencil-alt"></i></a>
+                                            <form action="{{ route('personal.comment.delete', $comment) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="border-0 bg-transparent nav-link"
+                                                        onclick="return confirm('Вы хотите удалить комментарий ?')">
+                                                    <i class="far fa-trash text-danger" role="button"></i>
+                                                </button>
+                                            </form>
+
+                                        @endif
+                                            @endauth()
                                     </div>
                                 </div>
                             @endforeach

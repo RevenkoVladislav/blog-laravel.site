@@ -15,6 +15,7 @@
                             @csrf
                             <div class="form-group">
                                 <textarea class="form-control" name="message" cols="75" rows="10">{{ $comment->message }}</textarea>
+                                <input type="hidden" name="redirect_url" value="{{ url()->previous() }}">
                                 @error('message')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror

@@ -13,6 +13,8 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $comment->update($data);
-        return redirect()->route('admin.comment.index');
+
+        $redirectUrl = $request->input('redirect_url', route('post.index'));
+        return redirect($redirectUrl);
     }
 }
