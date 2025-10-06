@@ -10,14 +10,18 @@ class DestroyController extends Controller
 {
     public function __invoke()
     {
-        $trashed = User::onlyTrashed();
+        $trashedUsers = User::onlyTrashed()->get();
+        //нужно получить коллекцию пользователей и в цикле пройтись по ним и вызывать удаление, которое
+        //стригерит методы при удалении из модели User
 
-        if ($trashed->count() === 0) {
+        if ($trashedUsers->count() === 0) {
             return redirect()->route('admin.user.index')
                 ->with('info', 'Корзина пуста');
         } else {
 
-            $trashed->forceDelete();
+            foreach ($trashedUsers as $user) {
+                $user->forceDelete();
+            }
 
             return redirect()->route('admin.user.index')
                 ->with('info', 'Корзина пользователей очищена');

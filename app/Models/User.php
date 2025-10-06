@@ -84,4 +84,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->role === self::ROLE_ADMIN;
     }
+
+    protected static function booted()
+    {
+        static::deleting(function (User $user) {
+            if ($user->isForceDeleting()) {
+                // при жестком удалении чистим комментарии и лайки
+                $user->comments()->delete();
+                $user->likedPosts()->detach();
+            }
+        });
+    }
 }
