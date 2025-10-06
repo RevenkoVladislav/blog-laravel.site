@@ -18,4 +18,15 @@ class Tag extends Model
     {
         return $this->belongsToMany(Post::class, 'post_tags', 'tag_id', 'post_id');
     }
+
+    protected static function booted()
+    {
+        static::deleting(function ($tag) {
+            // Если физическое удаление
+            if ($tag->isForceDeleting()) {
+                // Сначала отвязываем все посты
+                $tag->posts()->detach();
+            }
+        });
+    }
 }

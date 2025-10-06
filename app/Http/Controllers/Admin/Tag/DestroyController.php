@@ -10,17 +10,20 @@ class DestroyController extends Controller
 {
     public function __invoke()
     {
-        $trashed = Tag::onlyTrashed();
+        $trashed = Tag::onlyTrashed()->get();
+        //получаем коллекцию
 
-        if ($trashed->count() === 0) {
+        if ($trashed->isEmpty()) {
             return redirect()->route('admin.tag.index')
                 ->with('info', 'Корзина пуста');
-        } else {
-
-            $trashed->forceDelete();
-
-            return redirect()->route('admin.tag.index')
-                ->with('info', 'Корзина тэгов очищена');
         }
+
+        foreach ($trashed as $tag) {
+            $tag->forceDelete();
+        }
+
+        return redirect()->route('admin.tag.index')
+            ->with('info', 'Корзина тэгов очищена');
     }
+
 }
