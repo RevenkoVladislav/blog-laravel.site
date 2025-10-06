@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -20,6 +21,7 @@ class IndexController extends Controller
         $data['categoriesCount'] = Category::all()->count();
         $data['tagsCount'] = Tag::all()->count();
         $data['commentsCount'] = Comment::all()->count();
+        $data['likedUsers'] = DB::table('post_user_likes')->count();
         return view('admin.main.index', compact('data'));
     }
 }

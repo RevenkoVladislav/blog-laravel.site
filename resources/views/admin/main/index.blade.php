@@ -81,7 +81,7 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>111</h3>
+                            <h3>{{ $data['likedUsers'] }}</h3>
                             <p>Лайки</p>
                         </div>
                         <div class="icon">
