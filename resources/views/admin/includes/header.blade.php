@@ -12,6 +12,8 @@
                     <x-breadcrumb-link route="admin.post.index" label="Посты" />
                     <x-breadcrumb-link route="admin.category.index" label="Категории" />
                     <x-breadcrumb-link route="admin.tag.index" label="Тэги" />
+                    <x-breadcrumb-link route="admin.comment.index" label="Комментарии" />
+                    <x-breadcrumb-link route="admin.like.index" label="Лайки" />
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->

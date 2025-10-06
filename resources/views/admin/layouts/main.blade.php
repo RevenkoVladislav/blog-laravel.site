@@ -39,6 +39,8 @@
             <x-navbar-menu route="admin.post.index" label="Посты"/>
             <x-navbar-menu route="admin.category.index" label="Категории"/>
             <x-navbar-menu route="admin.tag.index" label="Тэги"/>
+            <x-navbar-menu route="admin.comment.index" label="Комментарии"/>
+            <x-navbar-menu route="admin.like.index" label="Лайки"/>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">

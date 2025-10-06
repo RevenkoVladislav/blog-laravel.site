@@ -10,6 +10,8 @@
                 <x-sidebar-menu route="admin.post.index" icon="fas fa-clipboard" label="Посты"/>
                 <x-sidebar-menu route="admin.category.index" icon="fas fa-th-list" label="Категории"/>
                 <x-sidebar-menu route="admin.tag.index" icon="fas fa-tags" label="Тэги"/>
+                <x-sidebar-menu route="admin.comment.index" icon="fas fa-comments" label="Комментарии"/>
+                <x-sidebar-menu route="admin.like.index" icon="fas fa-heart" label="Лайки"/>
                 <li class="nav-item">
                 <a href="{{ route('post.index') }}" class="nav-link"><i class="nav-icon far fa-compass"></i>
                     <p>

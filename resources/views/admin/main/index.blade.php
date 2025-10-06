@@ -52,7 +52,7 @@
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-purple">
                         <div class="inner">
                             <h3>{{ $data['tagsCount'] }}</h3>
                             <p>Тэги</p>
@@ -64,6 +64,32 @@
                     </div>
                 </div>
                 <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-olive">
+                        <div class="inner">
+                            <h3>{{ $data['commentsCount'] }}</h3>
+                            <p>Комментарии</p>
+                        </div>
+                        <div class="icon">
+                            <i class="nav-icon far fa-comments"></i>
+                        </div>
+                        <a href="{{ route('admin.comment.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>111</h3>
+                            <p>Лайки</p>
+                        </div>
+                        <div class="icon">
+                            <i class="nav-icon far fa-heart"></i>
+                        </div>
+                        <a href="{{ route('admin.like.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
 

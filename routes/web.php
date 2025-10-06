@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\Category as AdminCategory;
 use App\Http\Controllers\Admin\Tag as AdminTag;
 use App\Http\Controllers\Admin\Post as AdminPost;
 use App\Http\Controllers\Admin\User as AdminUser;
+use App\Http\Controllers\Admin\Comment as AdminComment;
+use App\Http\Controllers\Admin\Like as AdminLike;
 use App\Http\Controllers\Personal\Main as PersonalMain;
 use App\Http\Controllers\Personal\Comment as PersonalComment;
 use App\Http\Controllers\Personal\Liked as PersonalLiked;
@@ -94,6 +96,17 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified']
         Route::patch('/{user}/edit-password', AdminUser\UpdatePasswordController::class)->name('updatePassword');
         Route::patch('/{user}/edit-role', AdminUser\UpdateRoleController::class)->name('updateRole');
         Route::delete('/{user}', AdminUser\DeleteController::class)->name('delete');
+    });
+
+    Route::prefix('comments')->name('comment.')->group(function() {
+       Route::get('/', AdminComment\IndexController::class)->name('index');
+       Route::get('/{comment}/edit', AdminComment\EditController::class)->name('edit');
+       Route::patch('/{comment}', AdminComment\UpdateController::class)->name('update');
+       Route::delete('/{comment}', AdminComment\DeleteController::class)->name('delete');
+    });
+
+    Route::prefix('likes')->name('like.')->group(function() {
+       Route::get('/', AdminLike\IndexController::class)->name('index');
     });
 });
 
