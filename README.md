@@ -29,3 +29,14 @@
 - Шаблон Еdica + Bootstrap для фронтенда.
 - Mysql
 - Queue (database)
+
+### Несколько скриншотов проекта
+<img width="1686" height="983" alt="лента" src="https://github.com/user-attachments/assets/bfa3386f-cb64-4859-83fe-1ab606544962" />
+<img width="1703" height="970" alt="админ панель" src="https://github.com/user-attachments/assets/8a75d8b6-2f21-40bd-8ff6-64211809289f" />
+<img width="1692" height="984" alt="схожие посты" src="https://github.com/user-attachments/assets/c8d2eab4-8a87-4e25-8484-b63f87ca6eeb" />
+<img width="1686" height="857" alt="категории" src="https://github.com/user-attachments/assets/138f5c32-d25f-43c4-aa5b-5c1e0c907dbc" />
+<img width="1179" height="797" alt="письмо на почту при регистрации" src="https://github.com/user-attachments/assets/722d3be1-879e-4123-970b-6eb94aa1ece8" />
+<img width="1704" height="984" alt="кабинет пользователя" src="https://github.com/user-attachments/assets/900eb7c0-2a78-453c-8d20-ef375b3af852" />
+<img width="1709" height="730" alt="список лайков в админке" src="https://github.com/user-attachments/assets/2f9a98b7-c6fa-4297-b558-43011437f98d" />
+<img width="1696" height="981" alt="панель управления 2" src="https://github.com/user-attachments/assets/76b5c46c-57f8-44be-b2a8-c2dc98b85041" />
+<img width="1692" height="977" alt="добавление поста" src="https://github.com/user-attachments/assets/7e3ed672-b979-4a44-b66b-63eb58e67f5a" />
