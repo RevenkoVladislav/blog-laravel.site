@@ -107,6 +107,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin', 'verified']
 
     Route::prefix('likes')->name('like.')->group(function() {
        Route::get('/', AdminLike\IndexController::class)->name('index');
+       Route::delete('/{post}/{user}', AdminLike\DeleteController::class)->name('delete');
     });
 });
 
