@@ -18,6 +18,7 @@ use App\Http\Controllers\Post\Comment as PostComment;
 use App\Http\Controllers\Post\Like as PostLike;
 use App\Http\Controllers\Category as Category;
 use App\Http\Controllers\Category\Post as CategoryPost;
+use App\Http\Controllers\Tag as TagController;
 
 Route::name('main.')->group(function() {
     Route::get('/', Main\IndexController::class)->name('index');
@@ -41,6 +42,14 @@ Route::prefix('categories')->name('category.')->group(function() {
 
    Route::prefix('{category}/posts')->name('post.')->group(function() {
       Route::get('/', CategoryPost\IndexController::class)->name('index');
+   });
+});
+
+Route::prefix('tags')->name('tag.')->group(function() {
+   Route::get('/', TagController\IndexController::class)->name('index');
+
+   Route::prefix('{tag}/posts')->name('post.')->group(function() {
+      Route::get('/',TagController\Post\IndexController::class)->name('index');
    });
 });
 

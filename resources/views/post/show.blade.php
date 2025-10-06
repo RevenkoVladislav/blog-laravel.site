@@ -20,8 +20,16 @@
                 </div>
             </section>
 
+
+
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+
+                    <div class="card-body p-0">
+                    @foreach($post->tags as $tag)
+                        <a href="{{ route('tag.post.index', $tag) }}" class="text-info">#{{ $tag->title }}</a>
+                    @endforeach()
+                    </div>
 
                     @guest
                         <span class="blog-post-title">{{ $post->liked_users_count }} <i class="far fa-heart"></i></span>

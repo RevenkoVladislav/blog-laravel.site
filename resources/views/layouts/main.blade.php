@@ -25,6 +25,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('tag.index') }}">Тэги</a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Войти</a>
