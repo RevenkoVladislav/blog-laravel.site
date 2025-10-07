@@ -4,7 +4,7 @@
 ### Установка и настройка
 1. git clone https://github.com/RevenkoVladislav/blog-laravel.site.git
 2. Настраиваем MAMP, Openerver  или другой сервис для локального доступа. Я использую следующие настройки MAMP 
-```php
+```
 // MAMP/conf/apache/extra/httpd-vhosts.conf
 <VirtualHost *:8888>
     ServerAdmin webmaster@blog-laravel.site
@@ -20,7 +20,25 @@
     </Directory>
 </VirtualHost>
 ```
-3. 
+3. Выполняем команду `composer install` или `composer update`
+4. Выполняем команды
+```
+npm install
+npm run dev
+```
+5. Редактируем файл `.env.example` и переименовываем в `.env`
+```
+APP_NAME=blog-laravel.site
+APP_URL=http://blog-laravel.site:8888/
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=8889
+DB_DATABASE=blog_laravel
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+6. Делаем Экспорт базы данных из файла 
+7. Выполняем команду `php artisan key:generate`  
 
 ### Реализован следующей функционал:
 - Показ постов на главной странице (/posts), пагинация, показ рандомных постов, показ "горячих" постов (по количеству лайков).
