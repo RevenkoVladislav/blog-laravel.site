@@ -21,12 +21,7 @@
 </VirtualHost>
 ```
 3. Выполняем команду `composer install` или `composer update`
-4. Выполняем команды
-```
-npm install
-npm run dev
-```
-5. Редактируем файл `.env.example` и переименовываем в `.env`
+4. Редактируем файл `.env.example` и переименовываем в `.env`
 ```
 APP_NAME=blog-laravel.site
 APP_URL=http://blog-laravel.site:8888/
@@ -36,9 +31,39 @@ DB_PORT=8889
 DB_DATABASE=blog_laravel
 DB_USERNAME=root
 DB_PASSWORD=root
+
+//т.к при регистрации используется smpt  то необходимо заполнить следующее
+//я использовал ethereal.email, можно аналоги, например mailer и др. Воспользуйтесь инструкцией на вашем сервисе.
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=from@example.com
+MAIL_FROM_NAME="${APP_NAME}"
 ```
-6. Делаем Экспорт базы данных из файла 
-7. Выполняем команду `php artisan key:generate`  
+5. Распаковываем архив `blog_laravel.sql.zip` и делаем экспорт базы данных
+6. Выполняем команду `php artisan key:generate`
+7. Выполняем команды в разных вкладках терминала - 1 вкладка
+```
+npm install
+npm run dev
+```
+2 - вкладка 
+```
+php artisan queue:work
+```
+3 - вкладка 
+```
+php artisan storage:link
+```
+
+8. Запускаем проект через встроенный веб сервер либо выполнить в отдельной вкладке терминала
+```
+php artisan serve
+```
+9. Для входа в админку есть готовый пользователь - mail: admin@mail.ru пароль: admin
 
 ### Реализован следующей функционал:
 - Показ постов на главной странице (/posts), пагинация, показ рандомных постов, показ "горячих" постов (по количеству лайков).
@@ -66,6 +91,7 @@ DB_PASSWORD=root
 - Шаблон Еdica + Bootstrap для фронтенда.
 - Mysql
 - Queue (database)
+- Telescope
 
 ### Несколько скриншотов проекта
 <img width="1686" height="983" alt="лента" src="https://github.com/user-attachments/assets/bfa3386f-cb64-4859-83fe-1ab606544962" />
