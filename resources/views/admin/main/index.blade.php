@@ -16,7 +16,7 @@
                             <p>Пользователи</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon far fa-users"></i>
+                            <i class="nav-icon fas fa-users"></i>
                         </div>
                         <a href="{{ route('admin.user.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
@@ -30,7 +30,7 @@
                             <p>Посты</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon far fa-clipboard"></i>
+                            <i class="nav-icon fas fa-clipboard"></i>
                         </div>
                         <a href="{{ route('admin.post.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
@@ -72,7 +72,7 @@
                             <p>Комментарии</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon far fa-comments"></i>
+                            <i class="nav-icon fas fa-comments"></i>
                         </div>
                         <a href="{{ route('admin.comment.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
@@ -85,7 +85,7 @@
                             <p>Лайки</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon far fa-heart"></i>
+                            <i class="nav-icon fas fa-heart"></i>
                         </div>
                         <a href="{{ route('admin.like.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

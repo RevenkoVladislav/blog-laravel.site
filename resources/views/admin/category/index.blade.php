@@ -63,10 +63,10 @@
                                             <td class="text-center">{{ $category->created_at->toDateString() }}</td>
                                             <td class="text-center"><a
                                                     href="{{ route('admin.category.show', $category) }}"><i
-                                                        class="far fa-eye"></i></a></td>
+                                                        class="fas fa-eye"></i></a></td>
                                             <td class="text-center"><a
                                                     href="{{ route('admin.category.edit', $category) }}"
-                                                    class="text-success"><i class="far fa-pencil-alt"></i></a></td>
+                                                    class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                             <td class="text-center">
                                                 @unless($category->is_system)
                                                 <form action="{{ route('admin.category.delete', $category) }}"
@@ -75,7 +75,7 @@
                                                     @csrf
                                                     <button type="submit" class="border-0 bg-transparent"
                                                             onclick="return confirm('Точно хотите удалить ?')">
-                                                        <i class="far fa-trash text-danger" role="button"></i>
+                                                        <i class="fas fa-trash text-danger" role="button"></i>
                                                     </button>
                                                 </form>
                                                 @endunless

@@ -59,14 +59,14 @@
                                         <td class="text-center">{{ $user->id }}</td>
                                         <td class="text-center"><a href="{{ route('admin.user.show', $user) }}" class="text-info">{{ $user->name }}</a></td>
                                         <td class="text-center">{{ $user->created_at->toDateString() }}</td>
-                                        <td class="text-center"><a href="{{ route('admin.user.show', $user) }}"><i class="far fa-eye"></i></a></td>
-                                        <td class="text-center"><a href="{{ route('admin.user.edit', $user) }}" class="text-success"><i class="far fa-pencil-alt"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('admin.user.show', $user) }}"><i class="fas fa-eye"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('admin.user.edit', $user) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td class="text-center">
                                             <form action="{{ route('admin.user.delete', $user) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="border-0 bg-transparent" onclick="return confirm('Точно хотите удалить ?')">
-                                                <i class="far fa-trash text-danger" role="button"></i>
+                                                <i class="fas fa-trash text-danger" role="button"></i>
                                                 </button>
                                             </form>
                                         </td>

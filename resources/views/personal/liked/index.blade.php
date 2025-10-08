@@ -29,13 +29,13 @@
                                             <td class="text-center">{{ $post->id }}</td>
                                             <td class="text-center"><a href="{{ route('post.show', $post) }}" class="text-info">{{ $post->title }}</a></td>
                                             <td class="text-center">{{ $post->created_at->toDateString() }}</td>
-                                            <td class="text-center"><a href="{{ route('post.show', $post) }}"><i class="far fa-eye"></i></a></td>
+                                            <td class="text-center"><a href="{{ route('post.show', $post) }}"><i class="fas fa-eye"></i></a></td>
                                             <td class="text-center">
                                                 <form action="{{ route('personal.liked.delete', $post) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="submit" class="border-0 bg-transparent" onclick="return confirm('Вам больше не нравится этот пост ?')">
-                                                        <i class="far fa-trash text-danger" role="button"></i>
+                                                        <i class="fas fa-trash text-danger" role="button"></i>
                                                     </button>
                                                 </form>
                                             </td>

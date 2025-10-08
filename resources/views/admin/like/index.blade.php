@@ -32,7 +32,7 @@
                                                     @method('DELETE')
                                                     <span class="badge bg-info">{{ $user->name }}
                                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить лайк у {{ $user->name }}?')">
-                                                            <i class="far fa-trash" role="button"></i>
+                                                            <i class="fas fa-trash" role="button"></i>
                                                         </button>
                                                     </span>
                                                 </form>

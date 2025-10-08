@@ -43,7 +43,7 @@ MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=from@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-5. Распаковываем архив `blog_laravel.sql.zip` и делаем экспорт базы данных
+5. Распаковываем архив `blog_laravel.sql.zip` и делаем импорт базы данных
 6. Выполняем команду `php artisan key:generate`
 7. Выполняем команды в разных вкладках терминала - 1 вкладка
 ```

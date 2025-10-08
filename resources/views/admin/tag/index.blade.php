@@ -58,14 +58,14 @@
                                         <td class="text-center">{{ $tag->id }}</td>
                                         <td class="text-center"><a href="{{ route('admin.tag.show', $tag) }}" class="text-info">{{ $tag->title }}</a></td>
                                         <td class="text-center">{{ $tag->created_at->toDateString() }}</td>
-                                        <td class="text-center"><a href="{{ route('admin.tag.show', $tag) }}"><i class="far fa-eye"></i></a></td>
-                                        <td class="text-center"><a href="{{ route('admin.tag.edit', $tag) }}" class="text-success"><i class="far fa-pencil-alt"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('admin.tag.show', $tag) }}"><i class="fas fa-eye"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('admin.tag.edit', $tag) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td class="text-center">
                                             <form action="{{ route('admin.tag.delete', $tag) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="border-0 bg-transparent" onclick="return confirm('Точно хотите удалить ?')">
-                                                <i class="far fa-trash text-danger" role="button"></i>
+                                                <i class="fas fa-trash text-danger" role="button"></i>
                                                 </button>
                                             </form>
                                         </td>

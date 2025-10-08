@@ -16,7 +16,7 @@
                             <p>Понравившиеся посты</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon far fa-heart"></i>
+                            <i class="nav-icon fas fa-heart"></i>
                         </div>
                         <a href="{{ route('personal.liked.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
@@ -30,7 +30,7 @@
                             <p>Комментарии</p>
                         </div>
                         <div class="icon">
-                            <i class="nav-icon far fa-comments"></i>
+                            <i class="nav-icon fas fa-comments"></i>
                         </div>
                         <a href="{{ route('personal.comment.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

@@ -31,13 +31,13 @@
                                             <td class="text-center">{{ $comment->message }}</td>
                                             <td class="text-center">{{ $comment->user->name }}</td>
                                             <td class="text-center">{{ $comment->created_at->toDateString() }}</td>
-                                            <td class="text-center"><a href="{{ route('admin.comment.edit', $comment) }}" class="text-success"><i class="far fa-pencil-alt"></i></a></td>
+                                            <td class="text-center"><a href="{{ route('admin.comment.edit', $comment) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                             <td class="text-center">
                                                 <form action="{{ route('admin.comment.delete', $comment) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="submit" class="border-0 bg-transparent" onclick="return confirm('Вы хотите удалить комментарий ?')">
-                                                        <i class="far fa-trash text-danger" role="button"></i>
+                                                        <i class="fas fa-trash text-danger" role="button"></i>
                                                     </button>
                                                 </form>
                                             </td>
