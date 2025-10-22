@@ -18,8 +18,14 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Category::factory(10)->create();
-        Tag::factory(15)->create();
-        Post::factory(30)->create();
+        $tags = Tag::factory(15)->create();
+        $posts = Post::factory(30)->create();
+
+        foreach ($posts as $post) {
+            $tagIds = $tags->random(5)->pluck('id');
+            $post->tags()->attach($tagIds);
+        }
+
         $this->call([AdminUserSeeder::class, SystemCategorySeeder::class]);
     }
 }
