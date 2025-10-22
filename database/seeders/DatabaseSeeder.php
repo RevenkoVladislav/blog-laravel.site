@@ -23,8 +23,13 @@ class DatabaseSeeder extends Seeder
         $posts = Post::factory(30)->create();
 
         foreach ($posts as $post) {
-            $tagIds = $tags->random(5)->pluck('id');
+            $tagIds = $tags->random(rand(3,5))->pluck('id');
             $post->tags()->attach($tagIds);
+        }
+
+        foreach ($users as $user){
+            $likedPostIds = $posts->random(rand(5, 8))->pluck('id');
+            $user->likedPosts()->attach($likedPostIds);
         }
 
         Comment::factory(150)->create();
