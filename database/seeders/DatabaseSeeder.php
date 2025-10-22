@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        $users = User::factory(10)->create();
         Category::factory(10)->create();
         $tags = Tag::factory(15)->create();
         $posts = Post::factory(30)->create();
@@ -25,6 +26,8 @@ class DatabaseSeeder extends Seeder
             $tagIds = $tags->random(5)->pluck('id');
             $post->tags()->attach($tagIds);
         }
+
+        Comment::factory(150)->create();
 
         $this->call([AdminUserSeeder::class, SystemCategorySeeder::class]);
     }
