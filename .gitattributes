@@ -1,0 +1,6 @@
+/public/js/* linguist-vendored
+/public/css/* linguist-vendored
+/node_modules/* linguist-vendored
+/resources/js/* linguist-vendored
+/resources/css/* linguist-vendored
+/resources/js/* linguist-vendored
