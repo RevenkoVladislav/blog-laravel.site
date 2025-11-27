@@ -1,5 +1,11 @@
 ### Блог на Laravel
-Мой учебный проект блога на laravel с разделением пользователей, админ панелью с полной CRUD реализацией для постов, пользователей, тэгов и комментариев, и личным кабинетом пользователей. 
+Мой учебный проект блога на laravel с разделением пользователей, админ панелью с полной CRUD реализацией для постов, пользователей, тэгов и комментариев, и личным кабинетом пользователей.
+
+![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ### Установка и настройка
 1. git clone https://github.com/RevenkoVladislav/blog-laravel.site.git
